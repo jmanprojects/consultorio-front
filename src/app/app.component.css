@@ -1,0 +1,75 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+app-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 100;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  margin-top: 5px; /* espacio para el topbar */
+  height: calc(100vh - 60px);
+}
+
+app-navbar {
+  width: 250px; /* o el ancho que uses para tu sidebar */
+  height: 100%;
+  /* background-color: #f9f9f9; */
+  /* box-shadow: 2px 0 6px rgba(0, 0, 0, 0.05); */
+}
+
+.contenido {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+
+/* .layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .contenido {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+  } */
+  
+
+  /* .layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  app-topbar {
+    height: 60px;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    z-index: 10;
+  } */
+  
