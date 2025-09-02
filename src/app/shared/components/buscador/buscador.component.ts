@@ -1,5 +1,4 @@
-import { Component, Output } from '@angular/core';
-import { EventEmitter } from 'stream';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'shared-buscador',
@@ -7,7 +6,14 @@ import { EventEmitter } from 'stream';
   styleUrl: './buscador.component.css'
 })
 export class BuscadorComponent {
-  termino: string = '';
+  // termino: string = '';
+  @Output() terminoBusqueda = new EventEmitter<string>();
+  constructor(){}
+
+  onInput(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.terminoBusqueda.emit(value.trim().toLowerCase());
+  }
 
   
 }

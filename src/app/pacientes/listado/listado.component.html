@@ -1,9 +1,9 @@
 <!-- <h2>Pacientes</h2> -->
-<shared-buscador ></shared-buscador>
+<shared-buscador (terminoBusqueda)="filtrarPacientes($event)"></shared-buscador>
 <!-- listado.component.html -->
 <div class="grid">
   <pacientes-pacientes-card
-    *ngFor="let paciente of pacientes"
+    *ngFor="let paciente of pacientesFiltrados"
     [paciente]="paciente">
   </pacientes-pacientes-card>
 </div>

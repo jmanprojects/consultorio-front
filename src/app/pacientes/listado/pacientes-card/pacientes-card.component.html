@@ -1,9 +1,11 @@
 <div class="card">
-    <!-- <img [src]="paciente.foto || 'assets/pacientes/default.jpg'" class="foto" /> -->
-    <div class="info">
+     <!-- <img [src]="paciente.foto || 'assets/pacientes/default.jpg'" class="foto" /> -->
+     <img [src]="paciente.foto" class="foto" />
+     <div class="info">
       <h3>{{ paciente.nombre }}</h3>
       <p>Edad: {{ paciente.edad }}</p>
-      <p>Última cita: {{ paciente.fechaAlta| date:'dd MMM yyyy' }}</p>
+      <p>Última cita: {{ paciente.ultimaCita| date:'dd MMM yyyy' }}</p>
+      <p>Proxima cita: {{ paciente.proximaCita| date:'dd MMM yyyy' }}</p>
     </div>
     <div class="acciones">
       <button (click)="ver()">Ver</button>
@@ -11,4 +13,3 @@
       <button (click)="eliminar()">Eliminar</button>
     </div>
   </div>
-  
