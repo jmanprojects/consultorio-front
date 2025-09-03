@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Paciente } from '../interfaces/pacientes.interface';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacienteService {
+  private apiUrl = 'http://localhost:8000/api/pacientes';
+
 
   constructor() { }
 
@@ -19,6 +23,14 @@ export class PacienteService {
 
   getPacientes(): Paciente[] {
     return this.pacientes;
+  }
+
+  getPacienteDetalle(id: number):Observable<Paciente | undefined >{
+    const paciente = this.pacientes.find(p=> p.id === id);
+    console.log(paciente);
+    return of(paciente);
+
+    // return this.http.get<Paciente>(`${this.apiUrl}/${id}`);
   }
 }
 

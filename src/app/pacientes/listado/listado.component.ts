@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { Router } from '@angular/router';
 import { Paciente } from '../../core/interfaces/pacientes.interface';
 import { PacienteService } from '../../core/services/pacientes.service';
 
@@ -11,7 +12,10 @@ export class ListadoComponent implements OnInit {
   pacientes: Paciente [] = [];
   pacientesFiltrados: Paciente[] = [];
 
-  constructor( private pacientesService: PacienteService){
+  constructor( 
+    private pacientesService: PacienteService,
+    private router: Router,
+  ){
   }
 
   ngOnInit(): void {
@@ -26,6 +30,10 @@ export class ListadoComponent implements OnInit {
     this.pacientesFiltrados = this.pacientes.filter(p =>
       p.nombre.toLowerCase().includes(termino)
     );
+  }
+
+  verDetalle(id: number) {
+    this.router.navigate(['/pacientes', id]);
   }
 }
 

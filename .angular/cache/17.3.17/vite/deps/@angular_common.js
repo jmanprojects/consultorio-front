@@ -98,10 +98,18 @@ import {
   provideNetlifyLoader,
   registerLocaleData,
   setRootDomAdapter
+<<<<<<< HEAD
 } from "./chunk-PR6X4ZEW.js";
 import {
   IMAGE_CONFIG
 } from "./chunk-IAWKIYOM.js";
+=======
+} from "./chunk-T76FZRMF.js";
+import {
+  IMAGE_CONFIG
+} from "./chunk-6JJ7KVRE.js";
+import "./chunk-T4QU4GDF.js";
+>>>>>>> bb32806d (pagina delmpaciente)
 export {
   APP_BASE_HREF,
   AsyncPipe,
