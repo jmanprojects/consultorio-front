@@ -20,16 +20,17 @@ export class ListadoComponent implements OnInit {
 
   ngOnInit(): void {
    this.pacientes = this.pacientesService.getPacientes();
-    console.log(this.pacientesFiltrados);
+    // console.log(this.pacientesFiltrados);
     this.pacientesFiltrados = [...this.pacientes];
   }
 
   // pacientesFiltrados: string = [];
   filtrarPacientes(termino: string): void {
-    console.log(termino);
+    // console.log(termino);
     this.pacientesFiltrados = this.pacientes.filter(p =>
       p.nombre.toLowerCase().includes(termino)
     );
+    
   }
 
   verDetalle(id: number) {

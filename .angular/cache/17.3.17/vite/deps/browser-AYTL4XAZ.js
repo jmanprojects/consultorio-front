@@ -1,10 +1,6 @@
 import {
   DOCUMENT
-<<<<<<<< HEAD:.angular/cache/17.3.17/vite/deps/browser-GT3BGFMH.js
-} from "./chunk-PR6X4ZEW.js";
-========
 } from "./chunk-T76FZRMF.js";
->>>>>>>> bb32806d (pagina delmpaciente):.angular/cache/17.3.17/vite/deps/browser-AYTL4XAZ.js
 import {
   ANIMATION_MODULE_TYPE,
   Inject,
@@ -16,15 +12,11 @@ import {
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵinject
-<<<<<<<< HEAD:.angular/cache/17.3.17/vite/deps/browser-GT3BGFMH.js
-} from "./chunk-IAWKIYOM.js";
-========
 } from "./chunk-6JJ7KVRE.js";
 import {
   __objRest,
   __spreadValues
 } from "./chunk-T4QU4GDF.js";
->>>>>>>> bb32806d (pagina delmpaciente):.angular/cache/17.3.17/vite/deps/browser-AYTL4XAZ.js
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AnimationMetadataType;
@@ -4468,8 +4460,4 @@ export {
    * License: MIT
    *)
 */
-<<<<<<<< HEAD:.angular/cache/17.3.17/vite/deps/browser-GT3BGFMH.js
-//# sourceMappingURL=browser-GT3BGFMH.js.map
-========
 //# sourceMappingURL=browser-AYTL4XAZ.js.map
->>>>>>>> bb32806d (pagina delmpaciente):.angular/cache/17.3.17/vite/deps/browser-AYTL4XAZ.js

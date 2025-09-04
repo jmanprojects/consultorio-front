@@ -451,12 +451,8 @@ import {
   ɵɵvalidateIframeAttribute,
   ɵɵviewQuery,
   ɵɵviewQuerySignal
-<<<<<<< HEAD
-} from "./chunk-IAWKIYOM.js";
-=======
 } from "./chunk-6JJ7KVRE.js";
 import "./chunk-T4QU4GDF.js";
->>>>>>> bb32806d (pagina delmpaciente)
 export {
   ANIMATION_MODULE_TYPE,
   APP_BOOTSTRAP_LISTENER,

@@ -35,20 +35,12 @@ import {
   provideProtractorTestingSupport,
   withHttpTransferCacheOptions,
   withNoHttpTransferCache
-<<<<<<< HEAD
-} from "./chunk-2XU6A4FN.js";
-import {
-  getDOM
-} from "./chunk-PR6X4ZEW.js";
-import "./chunk-IAWKIYOM.js";
-=======
 } from "./chunk-JPGLKFP3.js";
 import {
   getDOM
 } from "./chunk-T76FZRMF.js";
 import "./chunk-6JJ7KVRE.js";
 import "./chunk-T4QU4GDF.js";
->>>>>>> bb32806d (pagina delmpaciente)
 export {
   BrowserModule,
   By,

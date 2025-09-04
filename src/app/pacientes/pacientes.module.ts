@@ -6,7 +6,7 @@ import { PacientesComponent } from './pacientes.component';
 import { ListadoComponent } from './listado/listado.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { PacienteComponent } from './paciente/paciente.component';
-import { PacientesCardComponent } from './listado/pacientes-card/pacientes-card.component';
+import { PacientesCardComponent } from '../shared/components/pacientes-card/pacientes-card.component';
 import { SharedModule } from '../shared/shared.module';
 
 

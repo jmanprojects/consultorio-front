@@ -1,10 +1,6 @@
 import {
   Title
-<<<<<<< HEAD
-} from "./chunk-2XU6A4FN.js";
-=======
 } from "./chunk-JPGLKFP3.js";
->>>>>>> bb32806d (pagina delmpaciente)
 import {
   DOCUMENT,
   HashLocationStrategy,
@@ -13,11 +9,7 @@ import {
   LocationStrategy,
   PathLocationStrategy,
   ViewportScroller
-<<<<<<< HEAD
-} from "./chunk-PR6X4ZEW.js";
-=======
 } from "./chunk-T76FZRMF.js";
->>>>>>> bb32806d (pagina delmpaciente)
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_INITIALIZER,
@@ -85,9 +77,6 @@ import {
   ɵɵloadQuery,
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
-<<<<<<< HEAD
-} from "./chunk-IAWKIYOM.js";
-=======
 } from "./chunk-6JJ7KVRE.js";
 import {
   BehaviorSubject,
@@ -127,7 +116,6 @@ import {
   tap,
   throwError
 } from "./chunk-T4QU4GDF.js";
->>>>>>> bb32806d (pagina delmpaciente)
 
 // node_modules/@angular/router/fesm2022/router.mjs
 var PRIMARY_OUTLET = "primary";
