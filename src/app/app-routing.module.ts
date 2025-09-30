@@ -30,10 +30,10 @@ const routes: Routes = [
         }, 
         { path: 'reportes', loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule) 
         },
-        {
-          path: '**',
-          redirectTo: 'dashboard'
-        }
+        // {
+        //   path: '**',
+        //   redirectTo: 'dashboard'
+        // }
     ]
   },
   {

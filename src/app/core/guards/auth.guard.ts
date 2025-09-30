@@ -1,50 +1,20 @@
 import { inject } from '@angular/core';
-import { CanActivateFn, Router, UrlTree  } from '@angular/router';
+import { CanActivateFn, Router, UrlTree } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-// import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
-export const authGuard: CanActivateFn = (route, state): boolean | UrlTree => {
-
+export const authGuard: CanActivateFn = (route, state) => {
   const auth = inject(AuthService);
   const router = inject(Router);
-  console.log('cha cha cha');
-  if (auth.isLoggedIn()) {
-    console.log('si hay token');
-    return true;
-  } 
-    console.log('no hay token');
-    return router.parseUrl('/auth/login'); 
-    // router.navigate(['/auth/login']);
-    // return false;
-  
+
+  // Usamos observable para que Angular espere el valor antes de renderizar
+  return auth.loggedIn$.pipe(
+    map(loggedIn => {
+      if (loggedIn && state.url === '/auth/login') {
+        return router.parseUrl('/dashboard'); // evita acceso a login si ya hay token
+      }
+      if (loggedIn) return true; // permite acceso
+      return router.parseUrl('/auth/login'); // redirige si no hay token
+    })
+  );
 };
-
-
-// despues de loguearme gurado la ruta y me redirijo a ella.
-// if (auth.isLoggedIn()) {
-//   return true;
-// } else {
-//   router.navigate(['/auth/login'], { queryParams: { returnUrl: state.url } });
-//   return false;
-// }
-
-
-
-// import { Injectable } from '@angular/core';
-// import { CanActivate, Router } from '@angular/router';
-// import { AuthService } from './auth.service';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthGuard implements CanActivate {
-//   constructor(private auth: AuthService, private router: Router) {}
-
-//   canActivate(): boolean {
-//     if (!this.auth.isLoggedIn()) {
-//       this.router.navigate(['/auth/login']);
-//       return false;
-//     }
-//     return true;
-//   }
-// }
