@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { TopbarComponent } from './shared/components/topbar/topbar.component';
-import { UserMenuComponent } from './shared/components/user-menu/user-menu.component';
-import { NotificationsComponent } from './shared/components/notifications/notifications.component';
+import { LayoutsModule } from './layouts/layouts.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    TopbarComponent,
-    UserMenuComponent,
-    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    LayoutsModule,
+    HttpClientModule
+    ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync()

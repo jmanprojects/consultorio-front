@@ -1,0 +1,30 @@
+<div class="login-wrapper">
+  <!-- <div class="clinic-info">
+    <img src="ruta-del-icono.svg" alt="Icono clínica" class="clinic-icon" />
+    <h1 class="clinic-name">Consultorio Vida Natural</h1>
+  </div> -->
+
+  <div class="login-container">
+    <h2>Iniciar sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <span class="material-icons">account_circle</span>
+        <input type="email" formControlName="email" required />
+        <label>Email</label>
+      </div>
+      
+      <div class="form-group">
+        <span class="material-icons">lock</span>
+        <input type="password" formControlName="password" required />
+        <label>Contraseña</label>
+      </div>
+
+      <button type="submit">
+        <span class="material-icons">check</span>
+        Iniciar sesión
+      </button>
+    </form>
+
+    <p *ngIf="errorMsg" class="error">{{ errorMsg }}</p>
+  </div>
+</div>

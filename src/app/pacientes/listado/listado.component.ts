@@ -34,6 +34,7 @@ export class ListadoComponent implements OnInit {
   }
 
   verDetalle(id: number) {
+    console.log(id);
     this.router.navigate(['/pacientes', id]);
   }
 }
