@@ -1,10 +1,22 @@
 <!-- <h2>Pacientes</h2> -->
-<shared-buscador (terminoBusqueda)="filtrarPacientes($event)"></shared-buscador>
+
+
+<div class="barra-superior">
+  <div class="input-wrapper">
+    <shared-buscador (terminoBusqueda)="filtrarPacientes($event)"></shared-buscador>
+  </div>
+  <button
+    routerLink="/pacientes/add-paciente" 
+    class="btn-agregar">
+    <span class="material-symbols-outlined"> add</span> Nuevo paciente
+  </button>
+</div>
+
 <!-- listado.component.html -->
-<div class="grid" *ngIf="pacientesFiltrados.length > 0; else sinPacientes">
+<div class="grid" *ngIf="pacientes.length > 0; else sinPacientes">
   <pacientes-pacientes-card
     (click)="verDetalle(paciente.id)"
-    *ngFor="let paciente of pacientesFiltrados"
+    *ngFor="let paciente of pacientes"
     [paciente]="paciente">
   </pacientes-pacientes-card>
 </div>

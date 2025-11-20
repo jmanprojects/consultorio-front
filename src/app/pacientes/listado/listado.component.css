@@ -1,4 +1,4 @@
-table {
+/* table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
@@ -14,7 +14,7 @@ table {
     font-weight: 500;
     margin-bottom: 1rem;
   }
-  
+   */
 
   /* listado.component.css */
   .grid {
@@ -27,3 +27,52 @@ table {
   pacientes-pacientes-card{
     cursor: pointer;
   }
+
+
+  .barra-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+  }
+  
+  .input-wrapper {
+    flex: 0 0 40%; /* ancho fijo relativo al contenedor */
+    display: flex;
+    justify-content: flex-end; /* empuja el buscador hacia la derecha de su espacio */
+  }
+  
+  .buscador {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .buscador:focus {
+    border-color: #3bae8e;
+  }
+  
+  .btn-agregar {
+    background-color: #3bae8e;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-agregar:hover {
+    background-color: #2e8b75;
+  }
+  
+
+
+  
+  

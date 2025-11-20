@@ -1,0 +1,14 @@
+<!-- modal-editar-paciente.component.html  (click)="cerrarModal()" -->
+<div class="modal-backdrop" (click)="cerrarModal()" >
+</div> 
+
+<div class="modal-container">
+    <!-- <button class="btn-cerrar" (click)="cerrarModal()">Cerrar</button> -->
+    <h2>{{paciente.nombre+' '+paciente.apellido}}</h2>
+  
+  <shared-paciente-form 
+    [pacienteUpdate]="paciente"
+    (submitForm)="editarPaciente($event)"></shared-paciente-form>
+
+
+</div>

@@ -1,0 +1,21 @@
+<div class="layout-max">
+    <div class="layout-container">
+        <!-- PANEL IZQUIERDO (Contenido del componente padre) -->
+        <div class="left-panel">
+        <div class="left-title">Configura tu cuenta</div>
+        <div class="left-text">
+        Aquí puedes mostrar información general del proceso, instrucciones,
+        una barra de progreso, o detalles del paso actual.
+        </div>
+        </div>
+        
+        
+        <!-- PANEL DERECHO (Aquí se renderizan los componentes hijos) -->
+        <div class="right-panel">
+        <div class="step-container">
+        <!-- router-outlet para mostrar los pasos -->
+        <router-outlet></router-outlet>
+        </div>
+        </div>
+        </div>
+</div>

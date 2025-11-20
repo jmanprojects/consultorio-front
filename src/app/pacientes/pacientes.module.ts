@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PacientesRoutingModule } from './pacientes-routing.module';
 import { PacientesComponent } from './pacientes.component';
@@ -8,6 +9,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { PacientesCardComponent } from '../shared/components/pacientes-card/pacientes-card.component';
 import { SharedModule } from '../shared/shared.module';
+import { AddPacienteComponent } from './add-paciente/add-paciente.component';
 
 
 @NgModule({
@@ -16,10 +18,12 @@ import { SharedModule } from '../shared/shared.module';
     ListadoComponent,
     FormularioComponent,
     PacienteComponent,
-    PacientesCardComponent
+    PacientesCardComponent,
+    AddPacienteComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     PacientesRoutingModule,
     SharedModule
   ]

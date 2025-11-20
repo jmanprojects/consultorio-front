@@ -6,15 +6,24 @@
   
     <div class="right">
       <button class="icon-button">
-        <span class="material-icons">notifications</span>
+        <span class="material-symbols-outlined">notifications</span>
         <span class="badge">3</span>
       </button>
   
-      <div class="user-menu">
+      <div class="user-menu" (click)="toggleMenu($event)" *ngIf="authService.user$ | async as user">
         <img src="assets/user.png" alt="Perfil" class="avatar" />
-        <span class="username">Dr. Pedro</span>
-        <i class="fas fa-chevron-down"></i>
+        <span class="username"><strong>{{user.name}} </strong> </span>
+        <!-- <i class="fas fa-chevron-down"></i> -->
+      </div>
+
+      <div #menuRef>
+
+      <shared-user-menu
+      class="animate__animated animate__fadeIn"
+      *ngIf="menu">
+      </shared-user-menu>
       </div>
     </div>
+    
   </div>
   

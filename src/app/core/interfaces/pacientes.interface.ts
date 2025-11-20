@@ -1,10 +1,12 @@
 export interface Paciente {
     id: number;
     nombre: string;
-    edad: number;
+    apellido: string;
     telefono: string;
-    fechaAlta: string;
-    ultimaCita: string;
-    proximaCita: string;
-    foto: string;
+    fecha_nacimiento: string;
+    sexo: string;
+    email: string;
+    direccion: string;
+    foto?: string;
+    
   }

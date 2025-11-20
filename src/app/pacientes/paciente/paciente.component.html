@@ -1,11 +1,107 @@
-<div class="paciente-header">
-    <h2>{{ paciente.nombre }}</h2>
-    <p>Edad: {{ paciente.edad }}</p>
-    <p>Expediente: #{{ paciente.id }}</p>
+<div class="paciente-page">
+
+  <div class="paciente-top">
+    <!-- 1️⃣ Encabezado / Información básica -->
+    <div class="paciente-header" *ngIf="paciente">
+
+      <div class="paciente-foto" >
+        <img 
+          [src]="'http://localhost:8000/storage/' + paciente.foto" alt="Foto del paciente" />
+        <div class="photo-edit"
+        (click)="triggerFileInput()">
+          <h2><span style="height: 30px;" class="material-symbols-outlined">image_arrow_up</span> Subir foto</h2>  
+        </div>
+        <input 
+          type="file" 
+          #fileInput 
+          accept="image/*" 
+          (change)="onFileSelected($event)"
+          hidden
+        />
+      </div>
+
+      <div class="paciente-info">
+        <h2>{{ paciente.nombre }} {{ paciente.apellido  }}</h2>
+        <p><strong>Edad:</strong> {{ paciente.fecha_nacimiento  }}</p>
+        <p><strong>Sexo:</strong> {{ paciente.sexo || 'No especificado' }}</p>
+        <p><strong>Teléfono:</strong> {{ paciente.telefono || 'N/A' }}</p>
+        <p><strong>Email:</strong> {{ paciente.email }}</p>
+        <p><strong>Dirección:</strong> {{ paciente.direccion || 'N/A' }}</p>
+
+        <div class="info-edit" (click)="abrirModal()">
+          <h2><span style="height: 30px;" class="material-symbols-outlined">edit</span> Editar</h2>  
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2️⃣ Acciones / Botones rápidos -->
+    <div class="paciente-actions">
+      <button class="btn btn-agendar" >
+        <span class="material-symbols-outlined">edit_calendar</span>Agendar nueva cita
+      </button>
+      <button class="btn btn-iniciar" >
+        <span class="material-symbols-outlined">cardiology</span>Iniciar consulta</button>
+      <!-- <button class="btn btn-editar" >Editar datos</button> -->
+    </div>
   </div>
-  
-  <div class="paciente-secciones">
-    <!-- <app-consultas-list [consultas]="paciente.consultas"></app-consultas-list>
-    <app-recetas-list [recetas]="paciente.recetas"></app-recetas-list>
-    <app-citas-futuras [citas]="paciente.citasFuturas"></app-citas-futuras> -->
-  </div>
+
+  <shared-modal-editar-paciente
+  class="animate__animated animate__fadeInDown" 
+  *ngIf="mostrarModal"
+  [paciente]="paciente"
+  (cerrar)="mostrarModal = false"
+  (cerrar)="mostrarModal = false"
+  (pacienteEditado)="actualizarPaciente($event)"
+  >
+</shared-modal-editar-paciente>
+
+  <!-- 3️⃣ Historial / Tabs opcionales -->
+  <!-- <div class="paciente-tabs">
+    <ul class="tabs">
+      <li [class.active]="activeTab === 'citas'" (click)="activeTab = 'citas'">Citas anteriores</li>
+      <li [class.active]="activeTab === 'preconsulta'" (click)="activeTab = 'preconsulta'">Preconsulta / Signos vitales</li>
+      <li [class.active]="activeTab === 'notas'" (click)="activeTab = 'notas'">Notas del médico</li>
+      <li [class.active]="activeTab === 'pagos'" (click)="activeTab = 'pagos'">Pagos</li>
+    </ul> -->
+<!-- 
+    <div class="tab-content">
+      <div *ngIf="activeTab === 'citas'">
+        <p *ngIf="paciente.citas?.length === 0">No hay citas registradas</p>
+        <ul *ngIf="paciente.citas?.length > 0">
+          <li *ngFor="let cita of paciente.citas">
+            {{ cita.fecha | date:'short' }} - {{ cita.medico.nombre }} - {{ cita.status }}
+          </li>
+        </ul>
+      </div> -->
+
+      <!-- <div *ngIf="activeTab === 'preconsulta'">
+        <p *ngIf="!paciente.preconsultas || paciente.preconsultas.length === 0">No hay preconsultas registradas</p>
+        <ul *ngIf="paciente.preconsultas?.length > 0">
+          <li *ngFor="let pre of paciente.preconsultas">
+            Fecha: {{ pre.fecha | date:'short' }} - Signos: {{ pre.signos }}
+          </li>
+        </ul>
+      </div> -->
+
+      <!-- <div *ngIf="activeTab === 'notas'">
+        <p *ngIf="!paciente.notas || paciente.notas.length === 0">No hay notas del médico</p>
+        <ul *ngIf="paciente.notas?.length > 0">
+          <li *ngFor="let nota of paciente.notas">
+            {{ nota.fecha | date:'short' }} - {{ nota.contenido }}
+          </li>
+        </ul>
+      </div> -->
+
+      <!-- <div *ngIf="activeTab === 'pagos'">
+        <p *ngIf="!paciente.pagos || paciente.pagos.length === 0">No hay pagos registrados</p>
+        <ul *ngIf="paciente.pagos?.length > 0">
+          <li *ngFor="let pago of paciente.pagos">
+            {{ pago.fecha | date:'short' }} - Monto: {{ pago.monto | currency }}
+          </li>
+        </ul>
+      </div> -->
+    <!-- </div>
+  </div> -->
+
+</div>

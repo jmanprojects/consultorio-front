@@ -19,22 +19,38 @@ const routes: Routes = [
         path: 'pacientes', 
         loadChildren: () => import('./pacientes/pacientes.module').then(m => m.PacientesModule),},
 
-        { path: 'citas', loadChildren: () => import('./citas/citas.module').then(m => m.CitasModule),
+        { path: 'citas', 
+          loadChildren: () => import('./citas/citas.module').then(m => m.CitasModule),
          
         },
-        { path: 'pagos', loadChildren: () => import('./pagos/pagos.module').then(m => m.PagosModule),
+        { path: 'pagos', 
+          loadChildren: () => import('./pagos/pagos.module').then(m => m.PagosModule),
           
         }, 
-        { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+        { path: 'dashboard', 
+          loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
           
         }, 
-        { path: 'reportes', loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule) 
+        { path: 'reportes', 
+          loadChildren: () => import('./reportes/reportes.module').then(m => m.ReportesModule) 
         },
+        {
+          path: 'user',
+          loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+        },
+        
+        // {
+        //   path: 'add-paciente', loadChildren:() => import('./pacientes/add-paciente')
+        // }
         // {
         //   path: '**',
         //   redirectTo: 'dashboard'
         // }
     ]
+  },
+  {
+    path: 'user-setup',
+    loadChildren: () => import('./user-setup/user-setup.module').then(m => m.UserSetupModule)
   },
   {
     path: 'auth',

@@ -1,1 +1,16 @@
-menu component
+<div class="menu-container">
+<ul>
+    <li routerLink="/user">
+        <span class="material-symbols-outlined"> account_circle</span>
+        Mi cuenta
+    </li>
+    <li (click)="configuracion()">
+        <span class="material-symbols-outlined"> settings</span>
+        Configuración
+    </li>
+    <li class="logout">
+        <span class="material-symbols-outlined">logout</span> Cerrar sesión
+    </li>
+</ul>
+</div>
+  

@@ -1,0 +1,57 @@
+.doctor-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  .doctor-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .foto-container {
+    cursor: pointer;
+  }
+  
+  .doctor-foto {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3bae8e;
+    transition: transform 0.2s ease;
+  }
+  
+  .foto-container:hover .doctor-foto {
+    transform: scale(1.05);
+  }
+  
+  .doctor-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .doctor-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn-material {
+    background-color: #3bae8e;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-material:hover {
+    background-color: #36a07d;
+  }
+  
