@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { WizardService } from '../../../core/services/wizard.service';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-password',
@@ -10,27 +9,35 @@ import { Router } from '@angular/router';
 })
 export class PasswordComponent {
 
-    form: FormGroup | undefined = new FormGroup({});
+    // form: FormGroup | undefined = new FormGroup({});
     passwordForm!: FormGroup;
+    showForm: boolean = true;
 
-  constructor(private wizardService:WizardService, private router: Router){
-
-  }
+  constructor(private wizardService:WizardService){}
 
   ngOnInit(): void {
-    this.form = this.wizardService.wizardForm;
-    this.passwordForm = this.form?.get('password') as FormGroup;
+    if(this.wizardService.getStatusPassword()){
+      this.showForm = false;
+    }
+    const rootForm = this.wizardService.wizardForm as FormGroup;
+    this.passwordForm = rootForm.get('password') as FormGroup;
+
   }
 
   onSubmit() {
-    console.log('aqui dando click');
+    // console.log('aqui dando click');
     if (this.passwordForm?.valid) {
-      console.log('listo');
+      // console.log('listo');
       this.wizardService.nextStep();
     } else {
       this.passwordForm?.markAllAsTouched();
     }
   }
+
+  onNext(){
+        this.wizardService.nextStep();
+    }
+
   // form = this.wizardService.wizardForm;
   // passwordForm = this.form?.get('password') as FormGroup;
 

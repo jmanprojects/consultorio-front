@@ -1,0 +1,110 @@
+<div class="form-container">
+    <form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>
+            <span class="material-symbols-outlined">
+                person
+            </span>
+            Nombre(s)
+        </label>
+        <input type="text" formControlName="name" placeholder="Nombre(s)" />
+        <shared-form-error [control]="personalForm.get('nombre')"></shared-form-error>
+      </div>
+  
+      <div class="form-group">
+        <label>
+            <span class="material-symbols-outlined">
+                person_text
+            </span>
+            Apellidos 
+        </label>
+        <input type="text" formControlName="last_name" placeholder="Apellidos" />
+        <shared-form-error [control]="personalForm.get('apellido')"></shared-form-error>
+      </div>
+  
+      <div class="form-group">
+        <label>
+            <span class="material-symbols-outlined">
+                school
+            </span>
+            Titulo o carrera profesional
+        </label>
+        <input type="text" formControlName="degree" placeholder="Titulo o carrera profesional" />
+        <shared-form-error [control]="personalForm.get('telefono')"></shared-form-error>
+
+      </div>
+      <div class="form-group">
+        <label>
+            <span class="material-symbols-outlined">
+                assignment
+            </span>
+            Especialidad
+        </label>
+        <input type="text" formControlName="speciality" placeholder="Especialidad" />
+        <shared-form-error [control]="personalForm.get('telefono')"></shared-form-error>
+
+      </div>
+
+      <div class="form-group">
+        <label>
+            <span class="material-symbols-outlined">
+                id_card
+            </span>
+            Cedula profesional
+        </label>
+        <input type="text" formControlName="profesional_license" placeholder="Cedula profesional" />
+        <shared-form-error [control]="personalForm.get('telefono')"></shared-form-error>
+
+      </div>
+
+      <!-- <div class="form-group">
+        <label>
+            <span class="material-symbols-outlined">
+                date_range
+            </span>
+            Fecha de nacimiento
+        </label>
+        <input type="text" formControlName="cedula" />
+      </div> -->
+
+      
+      <!-- <div class="form-group">
+        <label>
+          <span class="material-symbols-outlined">
+              add_a_photo
+          </span>
+          Foto de usuario
+      </label>
+        <input 
+          type="file" 
+          id="foto" 
+          accept="image/*"
+          class="form-control"
+
+
+          name: ['', Validators.required],
+          last_name: ['', Validators.required],
+          degree: ['',Validators.required],
+          speciality: ['',Validators.required],
+          profesional_license: ['',Validators.required],
+          photo:[null]
+        >
+      </div> -->
+
+      <!-- preview de la foto del paciente, hay que moverlo a una ventana tipo modal -->
+      <!-- <img *ngIf="previewSrc" [src]="previewSrc" alt="Preview de la imagen" /> -->
+
+      
+      
+      <button class="btn-guardar" type="submit">
+        <span class="material-symbols-outlined">check</span>
+        Enviar
+      </button>
+      <!-- <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div> -->
+  
+      <!-- <button type="submit" class="btn-guardar" [disabled]="cargando"> -->
+        <!-- {{ cargando ? 'Guardando...' : 'Guardar paciente' }} -->
+      <!-- </button> -->
+    </form>
+  </div>
+  

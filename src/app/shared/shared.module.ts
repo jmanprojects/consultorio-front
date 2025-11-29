@@ -13,6 +13,10 @@ import { PacienteFormComponent } from './components/paciente-form/paciente-form.
 import { ToastComponent } from './components/toast/toast.component';
 import { ToastContainerComponent } from './components/toast-container/toast-container.component';
 import { ModalEditarPacienteComponent } from './components/modal-editar-paciente/modal-editar-paciente.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { FormErrorComponent } from './form-error/form-error.component';
+import { ReviewWizardComponent } from './components/review-wizard/review-wizard.component';
+import { ConsultorioFormComponent } from './components/consultorio-form/consultorio-form.component';
 // import { PacientesCardComponent } from './components/pacientes-card/pacientes-card.component';
 
 
@@ -29,6 +33,10 @@ import { ModalEditarPacienteComponent } from './components/modal-editar-paciente
     ToastComponent,
     ToastContainerComponent,
     ModalEditarPacienteComponent,
+    UserFormComponent,
+    FormErrorComponent,
+    ReviewWizardComponent,
+    ConsultorioFormComponent,
     // PacientesCardComponent
   ],
   imports: [
@@ -44,6 +52,9 @@ import { ModalEditarPacienteComponent } from './components/modal-editar-paciente
     PacienteFormComponent,
     ToastContainerComponent,
     ModalEditarPacienteComponent,
+    UserFormComponent,
+    FormErrorComponent,
+    ConsultorioFormComponent
     // PacientesCardComponent
   ]
 })

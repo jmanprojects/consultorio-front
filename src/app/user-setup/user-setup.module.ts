@@ -6,6 +6,9 @@ import { PasswordComponent } from './steps/password/password.component';
 import { PersonalComponent } from './steps/personal/personal.component';
 import { ConsultorioComponent } from './steps/consultorio/consultorio.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { ReviewComponent } from './steps/review/review.component';
+// import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,12 +17,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserSetupComponent,
     PasswordComponent,
     PersonalComponent,
-    ConsultorioComponent
+    ConsultorioComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,
+    // HttpClientModule,
     UserSetupRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
 
   ]
 })

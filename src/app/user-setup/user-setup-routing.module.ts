@@ -4,6 +4,7 @@ import { UserSetupComponent } from './user-setup/user-setup.component';
 import { PasswordComponent } from './steps/password/password.component';
 import { PersonalComponent } from './steps/personal/personal.component';
 import { ConsultorioComponent } from './steps/consultorio/consultorio.component';
+import { ReviewComponent } from './steps/review/review.component';
 
 const routes: Routes = [
   { path: '', component: UserSetupComponent,
@@ -11,7 +12,8 @@ const routes: Routes = [
       {path: '', redirectTo: 'step-1', pathMatch: 'full'},
       {path: 'step-1', component:PasswordComponent},
       {path: 'step-2', component: PersonalComponent},
-      {path: 'step-3', component: ConsultorioComponent}
+      {path: 'step-3', component: ConsultorioComponent},
+      {path: 'step-4', component: ReviewComponent},
     ]
   },
   // { path: 'add-paciente', component: AddPacienteComponent },
