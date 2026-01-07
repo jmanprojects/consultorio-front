@@ -27,9 +27,9 @@ export class FormErrorComponent {
     //   return 'El formato del correo es inválido.';
     // }
 
-    // if (control.errors['pattern']) {
-    //   return 'El formato del valor es inválido.';
-    // }
+    if (control.errors['pattern']) {
+      return 'El formato del valor es inválido.';
+    }
 
     if (control.errors['minlength']) {
       const requiredLength = control.errors['minlength'].requiredLength;

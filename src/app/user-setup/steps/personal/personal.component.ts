@@ -7,45 +7,32 @@ import { WizardService } from '../../../core/services/wizard.service';
   templateUrl: './personal.component.html',
   styleUrl: './personal.component.css'
 })
-export class PersonalComponent{
+export class PersonalComponent implements OnInit {
 
-  // form?: FormGroup = new FormGroup({});
+  /**
+   * Subformulario "personal" dentro del formulario raíz del wizard.
+   * Es el grupo: configForm.get('personal')
+   */
   personalForm!: FormGroup;
-  
-  constructor(private wizardService:WizardService){
 
-  }
+  constructor(private wizardService: WizardService) {}
 
   ngOnInit(): void {
-    // this.form = this.wizardService.wizardForm;
-    
+    /**
+     * Obtenemos el formulario raíz desde el WizardService
+     * y luego el subgrupo "personal".
+     */
     const rootForm = this.wizardService.wizardForm as FormGroup;
     this.personalForm = rootForm.get('personal') as FormGroup;
   }
 
-  // onNext(){
-  //   if(this.personalForm.invalid){
-  //     this.personalForm.markAllAsTouched();
-  //     return;
-  //   }
-
-  //   this.wizardService.nextStep();
+  /**
+   * Botón "Regresar".
+   * No navega directamente: solo notifica al WizardService,
+   * y el ABUELO es quien realmente hace el cambio de paso.
+   */
+  // onBack(): void {
+  //   this.wizardService.prevStep();
   // }
-
-  onBack(){
-    this.wizardService.prevStep();
-  }
-  // onSubmit() {
-  //   console.log('aqui dando click');
-  //   if (this.personalForm?.valid) {
-  //     // console.log('listo');
-  //     this.wizardService.nextStep();
-  //   } else {
-  //     this.personalForm?.markAllAsTouched();
-  //   }
-  // }
-  // form = this.wizardService.wizardForm;
-  // passwordForm = this.form?.get('password') as FormGroup;
-
 
 }

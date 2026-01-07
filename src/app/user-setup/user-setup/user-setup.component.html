@@ -1,100 +1,139 @@
 <div class="layout-max">
-    <div class="layout-container">
-        <!-- PANEL IZQUIERDO (Contenido del componente padre) -->
-        <div class="left-panel">
-            <h2 class="left-title">Vamos a configurar tu cuenta</h2>
-            <p class="left-text">
-              Este formulario te guiará paso a paso para completar tu información.
-            </p>
-          
-            <!-- Barra de progreso -->
-            <div class="wizard-progress">
-              <div class="wizard-progress-header">
-                <span class="wizard-progress-label">Progreso</span>
-                <span class="wizard-progress-percent">{{((currentStep-1)/4)*100}}%</span>
-              </div>
-          
-              <div class="wizard-progress-bar">
-                <div class="wizard-progress-bar-fill" [style.width.%]="((currentStep-1) / 4) * 100"></div>
-              </div>
-          
-              <p class="wizard-progress-steps">Paso {{currentStep}} de 4</p>
-          
-              <ul class="wizard-steps-list">
-                <li class="wizard-step"
-                [ngClass]="{
-                  'completed': 1 < currentStep,
-                  'current': 1 === currentStep,
-                  'pending': 1 > currentStep
-                }">
-                  <span class="step-index">1</span>
-                  <div class="step-info">
-                    <span class="step-title">Actualiza tu contraseña</span>
-                    <span class="step-subtitle">Por seguridad actualiza tu contraseña</span>
-                  </div>
-                  <span class="material-symbols-outlined" *ngIf="1 < currentStep">check_circle</span>
-                </li>
-          
-                <li class="wizard-step"
-                [ngClass]="{
-                  'completed': 2 < currentStep,
-                  'current': 2 === currentStep,
-                  'pending': 2 > currentStep
-                }">
-                  <span class="step-index">2</span>
-                  <div class="step-info">
-                    <span class="step-title">Información personal</span>
-                    <span class="step-subtitle">Nombre, carrera, universidad, cedula ...</span>
-                  </div>
-                  <span class="material-symbols-outlined" *ngIf="2 < currentStep">check_circle</span>
-                </li>
-          
-                <li class="wizard-step"
-                [ngClass]="{
-                  'completed': 3 < currentStep,
-                  'current': 3 === currentStep,
-                  'pending': 3 > currentStep
-                }">
-                  <span class="step-index">3</span>
-                  <div class="step-info">
-                    <span class="step-title">Datos del consultorio</span>
-                    <span class="step-subtitle">Nombre, telefono, dirección ...</span>
-                  </div>
-                  <span class="material-symbols-outlined" *ngIf="3 < currentStep">check_circle</span>
-                </li>
-          
-                <!-- <li class="wizard-step pending">
-                  <span class="step-index">4</span>
-                  <div class="step-info">
-                    <span class="step-title">Documentos</span>
-                    <span class="step-subtitle">Foto y cédula</span>
-                  </div>
-                </li> -->
-          
-                <li class="wizard-step pending"
-                [ngClass]="{
-                  'completed': 4 < currentStep,
-                  'current': 4 === currentStep,
-                  'pending': 4 > currentStep
-                }">
-                  <span class="step-index">5</span>
-                  <div class="step-info">
-                    <span class="step-title">Revisión final</span>
-                    <span class="step-subtitle">Confirmación de datos</span>
-                  </div>
-                  <span class="material-symbols-outlined" *ngIf="3 < currentStep">check_circle</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-        
-        
-        <!-- PANEL DERECHO (Aquí se renderizan los componentes hijos) -->
-            <div class="right-panel">
-                <div class="step-container">
-                    <router-outlet></router-outlet>
-                </div>
-            </div>
+  <div class="layout-container">
+    <!-- PANEL IZQUIERDO (Contenido del componente padre) -->
+    <div class="left-panel">
+      <h2 class="left-title">Vamos a configurar tu cuenta</h2>
+      <p class="left-text">
+        Este formulario te guiará paso a paso para completar tu información.
+      </p>
+
+      <!-- Barra de progreso -->
+      <div class="wizard-progress">
+        <div class="wizard-progress-header">
+          <span class="wizard-progress-label">Progreso</span>
+          <span class="wizard-progress-percent">
+            {{ progressPercent | number:'1.0-0' }}%
+          </span>
         </div>
+
+        <div class="wizard-progress-bar">
+          <div
+            class="wizard-progress-bar-fill"
+            [style.width.%]="progressPercent">
+          </div>
+        </div>
+
+        <p class="wizard-progress-steps">
+          Paso {{ currentStep }} de {{ totalSteps }}
+        </p>
+
+        <ul class="wizard-steps-list">
+          <!-- Paso 1: Contraseña -->
+          <li class="wizard-step"
+              [ngClass]="{
+                'completed': 1 < currentStep,
+                'current': 1 === currentStep,
+                'pending': 1 > currentStep
+              }">
+            <span class="step-index">1</span>
+            <div class="step-info">
+              <span class="step-title">Actualiza tu contraseña</span>
+              <span class="step-subtitle">Por seguridad actualiza tu contraseña</span>
+            </div>
+            <span class="material-symbols-outlined" *ngIf="1 < currentStep">
+              check_circle
+            </span>
+          </li>
+
+          <!-- Paso 2: Información personal -->
+          <li class="wizard-step"
+              [ngClass]="{
+                'completed': 2 < currentStep,
+                'current': 2 === currentStep,
+                'pending': 2 > currentStep
+              }">
+            <span class="step-index">2</span>
+            <div class="step-info">
+              <span class="step-title">Información personal</span>
+              <span class="step-subtitle">Nombre, carrera, universidad, cédula...</span>
+            </div>
+            <span class="material-symbols-outlined" *ngIf="2 < currentStep">
+              check_circle
+            </span>
+          </li>
+
+          <!-- Paso 3: Datos del consultorio -->
+          <li class="wizard-step"
+              [ngClass]="{
+                'completed': 3 < currentStep,
+                'current': 3 === currentStep,
+                'pending': 3 > currentStep
+              }">
+            <span class="step-index">3</span>
+            <div class="step-info">
+              <span class="step-title">Datos del consultorio</span>
+              <span class="step-subtitle">Nombre, teléfono, dirección...</span>
+            </div>
+            <span class="material-symbols-outlined" *ngIf="3 < currentStep">
+              check_circle
+            </span>
+          </li>
+
+          <!-- Paso 4: Revisión final -->
+          <li class="wizard-step"
+          [ngClass]="{
+            'completed': 4 < currentStep,
+            'current': 4 === currentStep,
+            'pending': 4 > currentStep
+          }">
+          <span class="step-index">4</span>
+          <div class="step-info">
+          <span class="step-title">Revisión final</span>
+          <span class="step-subtitle">Confirma que todo sea correcto</span>
+          </div>
+          <span class="material-symbols-outlined" *ngIf="4 < currentStep">
+          check_circle
+          </span>
+          </li>
+
+
+          <!-- Si en el futuro quieres un Paso 4 (Revisión final),
+               puedes agregar otro <li> aquí y aumentar totalSteps a 4. -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- PANEL DERECHO (Aquí se renderizan los componentes hijos) -->
+    <div class="right-panel">
+      <div class="step-container">
+        <router-outlet></router-outlet>
+      </div>
+
+       <!-- Botones de navegación global del wizard -->
+    </div>
+    <div class="wizard-buttons">
+      <!-- Retroceder -->
+      <button
+        class="btn-left" 
+        type="button"
+        [disabled]="currentStep === 1"
+        (click)="previousStep()">
+        <span class="material-symbols-outlined">arrow_circle_left</span>
+        Anterior
+      </button>
+  
+      <!-- Avanzar / Finalizar -->
+      <button
+      class="btn-right"
+        type="button"
+        (click)="nextStep()">
+        <span class="material-symbols-outlined">arrow_circle_right</span>
+        {{ currentStep === totalSteps ? 'Finalizar' : 'Siguiente' }}
+      </button>
+    </div>
+   
+    
+  </div>
+
+  
 </div>

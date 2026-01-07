@@ -1,0 +1,92 @@
+<div class="summary-container">
+    <h2>
+      <span class="material-symbols-outlined resumen-icon-title">fact_check</span>
+      Revisión final
+    </h2>
+  
+    <p>Revisa que tu información sea correcta antes de guardar los cambios.</p>
+  
+    <!-- Sección: Datos personales -->
+    <section class="summary-section">
+      <h3>
+        <span class="material-symbols-outlined resumen-icon">badge</span>
+        Datos personales
+      </h3>
+  
+      <ul>
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">person</span> Nombre:</strong>
+          <span>{{ personalForm.get('name')?.value }}</span>
+        </li>
+  
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">person</span> Apellidos:</strong>
+          <span>{{ personalForm.get('last_name')?.value }}</span>
+        </li>
+  
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">school</span> Título / carrera:</strong>
+          <span>{{ personalForm.get('degree')?.value }}</span>
+        </li>
+  
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">workspace_premium</span> Especialidad:</strong>
+          <span>{{ personalForm.get('speciality')?.value }}</span>
+        </li>
+  
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">id_card</span> Cédula profesional:</strong>
+          <span>{{ personalForm.get('profesional_license')?.value }}</span>
+        </li>
+  
+        <li *ngIf="personalForm.get('photo')?.value">
+          <strong><span class="material-symbols-outlined resumen-field-icon">add_a_photo</span> Foto:</strong>
+          <span>{{ personalForm.get('photo')?.value?.name }}</span>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- Sección: Consultorio -->
+    <section class="summary-section">
+      <h3>
+        <span class="material-symbols-outlined resumen-icon">local_hospital</span>
+        Datos del consultorio
+      </h3>
+  
+      <ul>
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">medical_information</span> Nombre:</strong>
+          <span>{{ consultorioForm.get('clinic_name')?.value }}</span>
+        </li>
+  
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">home_pin</span> Dirección:</strong>
+          <span>{{ consultorioForm.get('address')?.value }}</span>
+        </li>
+  
+        <li>
+          <strong><span class="material-symbols-outlined resumen-field-icon">call</span> Teléfono:</strong>
+          <span>{{ consultorioForm.get('phone')?.value }}</span>
+        </li>
+  
+        <li *ngIf="consultorioForm.get('clinic_logo')?.value">
+          <strong><span class="material-symbols-outlined resumen-field-icon">add_a_photo</span> Logotipo:</strong>
+          <span>{{ consultorioForm.get('clinic_logo')?.value?.name }}</span>
+        </li>
+      </ul>
+    </section>
+  
+    <!-- Botones -->
+    <!-- <div class="summary-actions">
+      <button type="button" (click)="onBack()">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Regresar
+      </button>
+  
+      <button type="button" (click)="onConfirm()">
+        <span class="material-symbols-outlined">save</span>
+        Confirmar y guardar
+      </button>
+    </div> -->
+  </div>
+  

@@ -1,0 +1,176 @@
+/* Contenedor general del resumen
+   - Ocupa todo el espacio disponible del lado derecho
+   - Sin tarjeta extra, se integra al card del wizard
+*/
+.summary-container {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: transparent;
+    box-sizing: border-box;
+    overflow-y: auto; /* si algún día el contenido se pasa, que haga scroll interno */
+  }
+  
+  /* Título */
+  .summary-container h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  
+  .summary-container > p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #64748a;
+  }
+  
+  /* Secciones del resumen: sin caja, solo borde lateral tipo timeline */
+  .summary-section {
+    padding: 1.1rem 0 1.1rem 1.1rem;
+    border-left: 3px solid #3b82f6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  /* Título de sección */
+  .summary-section h3 {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  
+  /* Lista de campos */
+  .summary-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .summary-section li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+    padding: 0.35rem 0;
+    color: #475569;
+    border-bottom: 1px dashed #e2e8f0;
+  }
+  
+  .summary-section li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Etiqueta de cada campo */
+  .summary-section li strong {
+    color: #1e293b;
+    font-weight: 600;
+    min-width: 150px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  /* Valor de cada campo */
+  .summary-section li span {
+    color: #475569;
+  }
+  
+  /* Zona de acciones abajo (botones) */
+  .summary-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto; /* empuja los botones hacia abajo del contenedor */
+    padding-top: 1.5rem;
+  }
+  
+  /* Botones */
+  .summary-actions button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.1s ease, background 0.15s ease, box-shadow 0.15s ease;
+  }
+  
+  /* Botón regresar */
+  .summary-actions button:first-child {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+  
+  .summary-actions button:first-child:hover {
+    background: #cbd5e1;
+    transform: translateY(-1px);
+  }
+  
+  /* Botón confirmar */
+  .summary-actions button:last-child {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: #ffffff;
+  }
+  
+  .summary-actions button:last-child:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* Icono junto al título principal */
+  .resumen-icon-title {
+    font-size: 1.6rem;
+    vertical-align: middle;
+    color: #2563eb;
+  }
+  
+  /* Icono de cada sección (Datos personales / Consultorio) */
+  .resumen-icon {
+    font-size: 1.25rem;
+    vertical-align: middle;
+    color: #2563eb;
+  }
+  
+  /* Icono de cada campo */
+  .resumen-field-icon {
+    font-size: 1.05rem;
+    vertical-align: middle;
+    color: #3b82f6;
+  }
+  
+  /* Responsivo dentro del card (no pantalla completa) */
+  @media (max-width: 768px) {
+    .summary-container {
+      padding: 1rem 1.2rem;
+    }
+  
+    .summary-section li strong {
+      min-width: 120px;
+    }
+  
+    .summary-actions {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+  
+    .summary-actions button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  

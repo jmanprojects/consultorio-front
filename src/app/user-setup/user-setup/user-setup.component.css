@@ -234,3 +234,64 @@
 .wizard-step.pending .step-subtitle {
   color: #9ca3af;
 }
+
+/* Contenedor de los botones del wizard */
+.wizard-buttons {
+  position: absolute;
+  /* left: var(--left-panel-width);  justo en la línea que divide izq/der */
+  left: 50%;
+  bottom: 1.5rem;                 /* casi pegado abajo, ajusta a tu gusto */
+
+  display: inline-flex;
+  gap: 0;
+  z-index: 5; /* por si algo lo intenta tapar */
+}
+
+/* Estilo base de los botones */
+.wizard-buttons button {
+  padding: 0.7rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+/* Botón izquierdo (Regresar) */
+.wizard-buttons .btn-left {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+  border-right: 1px solid #cbd5e1;
+}
+
+.wizard-buttons .btn-left:hover:not(:disabled) {
+  background: #cbd5e1;
+}
+
+.wizard-buttons .btn-left:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* Botón derecho (Siguiente / Finalizar) */
+.wizard-buttons .btn-right {
+  background: linear-gradient(135deg, #42e8a0, #0ee991);
+  color: #ffffff;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+.wizard-buttons .btn-right:hover {
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Click feedback */
+.wizard-buttons button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+

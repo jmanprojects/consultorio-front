@@ -1,97 +1,79 @@
 <div class="form-container">
-    <form [formGroup]="consultorioForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label>
-            <span class="material-symbols-outlined">
-                medical_information
-            </span>
-            Nombre del consultorio
-        </label>
-        <input type="text" formControlName="clinic_name" placeholder="Nombre del consultorio" />
-        <!-- <shared-form-error [control]="personalForm.get('nombre')"></shared-form-error> -->
-      </div>
-  
-      <div class="form-group">
-        <label>
-            <span class="material-symbols-outlined">
-                home_pin
-            </span>
-            Dirección 
-        </label>
-        <input type="text" formControlName="address" placeholder="Dirección completa" />
-        <!-- <shared-form-error [control]="personalForm.get('apellido')"></shared-form-error> -->
-      </div>
-      <div class="form-group">
-        <label>
-            <span class="material-symbols-outlined">
-                phone
-            </span>
-            Telefono
-        </label>
-        <input type="text" formControlName="phone" placeholder="Telefono" />
-        <!-- <shared-form-error [control]="personalForm.get('apellido')"></shared-form-error> -->
-      </div>
-<!--   
-      <div class="form-group">
-        <label>
-            <span class="material-symbols-outlined">
-                phone_enabled
-            </span>
-            Teléfono
-        </label>
-        <input type="text" formControlName="telefono" placeholder="Teléfono" />
-        <shared-form-error [control]="personalForm.get('telefono')"></shared-form-error>
-
-
-        clinic_name: ['', Validators.required],
-          address: ['', Validators.required],
-          phone: ['', [
-            Validators.required,
-            Validators.pattern(/^[0-9]{10}$/) // 10 dígitos
-          ]],
-          clinic_logo: [null]
-      </div> -->
-
-      <!-- <div class="form-group">
-        <label>
-            <span class="material-symbols-outlined">
-                date_range
-            </span>
-            Fecha de nacimiento
-        </label>
-        <input type="date" formControlName="fecha_nacimiento" />
-      </div> -->
-
-      
-      <div class="form-group">
-        <label>
-          <span class="material-symbols-outlined">
-              add_a_photo
-          </span>
-          Logotipo o imagen
+  <form [formGroup]="consultorioForm">
+    <div class="form-group">
+      <label>
+        <span class="material-symbols-outlined">
+          medical_information
+        </span>
+        Nombre del consultorio
       </label>
-        <input 
-          type="file" 
-          id="foto" 
-          accept="image/*"
-          class="form-control"
-        >
-      </div>
+      <input
+        type="text"
+        formControlName="clinic_name"
+        placeholder="Nombre del consultorio"
+      />
+      <shared-form-error [control]="consultorioForm.get('clinic_name')"></shared-form-error>
+    </div>
 
-      <!-- preview de la foto del paciente, hay que moverlo a una ventana tipo modal -->
-      <!-- <img *ngIf="previewSrc" [src]="previewSrc" alt="Preview de la imagen" /> -->
+    <div class="form-group">
+      <label>
+        <span class="material-symbols-outlined">
+          home_pin
+        </span>
+        Dirección
+      </label>
+      <input
+        type="text"
+        formControlName="address"
+        placeholder="Dirección completa"
+      />
+      <shared-form-error [control]="consultorioForm.get('address')"></shared-form-error>
+    </div>
 
-      
-      
-      <button class="btn-guardar" type="submit">
-        <span class="material-symbols-outlined">check</span>
-        Enviar
-      </button>
-      <!-- <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div> -->
-  
-      <!-- <button type="submit" class="btn-guardar" [disabled]="cargando"> -->
-        <!-- {{ cargando ? 'Guardando...' : 'Guardar paciente' }} -->
-      <!-- </button> -->
-    </form>
-  </div>
-  
+    <div class="form-group">
+      <label>
+        <span class="material-symbols-outlined">
+          phone
+        </span>
+        Teléfono
+      </label>
+      <input
+        type="text"
+        formControlName="phone"
+        placeholder="Teléfono (10 dígitos)"
+      />
+      <shared-form-error [control]="consultorioForm.get('phone')"></shared-form-error>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <span class="material-symbols-outlined">
+          add_a_photo
+        </span>
+        Logotipo o imagen
+      </label>
+      <input
+        type="file"
+        id="logo"
+        accept="image/*"
+        class="form-control"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+
+    <!-- Preview del logo (opcional) -->
+    <!--
+    <img
+      *ngIf="previewSrc"
+      [src]="previewSrc"
+      alt="Preview del logo"
+      class="preview-image"
+    />
+    -->
+
+    <!-- <button class="btn-guardar" type="submit">
+      <span class="material-symbols-outlined">check</span>
+      Enviar
+    </button> -->
+  </form>
+</div>
