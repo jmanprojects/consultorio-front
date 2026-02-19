@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../../environmets/environment';
 /**
  * Servicio de usuario.
  * Encapsula todas las llamadas HTTP relacionadas con el usuario:
@@ -19,7 +19,9 @@ export class UserService {
    * Idealmente debería venir de environment (environment.apiUrl),
    * pero la dejamos aquí para que funcione tal cual lo tienes ahora.
    */
-  private apiUrl: string = 'http://127.0.0.1:8000/api';
+  // private apiUrl: string = 'http://127.0.0.1:8000/api';
+
+  private apiUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

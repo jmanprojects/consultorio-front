@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, of, throwError } from 'rxjs';
+import { environment } from '../../../environmets/environment';
+
 import { Paciente } from '../interfaces/pacientes.interface';
 
 
@@ -8,7 +10,9 @@ import { Paciente } from '../interfaces/pacientes.interface';
   providedIn: 'root'
 })
 export class PacienteService {
-  private apiUrl = 'http://localhost:8000/api/patients';
+
+  // private apiUrl = 'http://localhost:8000/api/patients';
+  private apiUrl = environment.apiUrl;
 
 
   constructor(private http:HttpClient) { }
@@ -22,7 +26,7 @@ export class PacienteService {
   //   { id: 5, nombre: 'Luisa Lopez',  telefono: '9617654321' },
   // ];
   private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('auth_token'); // O donde tengas guardado tu token
+    const token = localStorage.getItem('auth_token'); 
     return new HttpHeaders({
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
@@ -31,14 +35,14 @@ export class PacienteService {
 
 
   getPacientes(): Observable<Paciente[]> {
-    return this.http.get<Paciente[]>(this.apiUrl);
+    return this.http.get<Paciente[]>(`${environment.apiUrl}/patients`);
     // return this.http.get<Paciente[]>(this.apiUrl, { headers: this.getHeaders() });
   }
 
   buscarPacientes(termino: string): Observable<Paciente[]> {
     // Si tu endpoint usa query ?search=
     console.log('termino en el servicio'+termino);
-    const url = `${this.apiUrl}?search=${encodeURIComponent(termino)}`;
+    const url = `${this.apiUrl}/patients/?search=${encodeURIComponent(termino)}`;
     return this.http.get<Paciente[]>(url);
   }
 
@@ -48,7 +52,7 @@ export class PacienteService {
     // return of(paciente);
 
     // return this.http.get<Paciente>(`${this.apiUrl}/${id}`);
-    return this.http.get<Paciente>(`${this.apiUrl}/${id}`).pipe(
+    return this.http.get<Paciente>(`${this.apiUrl}/patients/${id}`).pipe(
       catchError(err => {
         console.error('Error al obtener paciente', err);
         return throwError(() => new Error('No se pudo obtener el paciente'));
@@ -58,7 +62,7 @@ export class PacienteService {
 
 
   crearPaciente(paciente: FormData): Observable<Paciente> {
-    return this.http.post<Paciente>(this.apiUrl, paciente).pipe(
+    return this.http.post<Paciente>(`${this.apiUrl}/patients`, paciente).pipe(
       catchError(error => {
         console.error('Error al crear paciente:', error);
         return throwError(() => error);
@@ -68,14 +72,14 @@ export class PacienteService {
 
   updatePaciente(id: number, pacienteData: Paciente): Observable<Paciente> {
     // console.log("en mi servicio editar paciente",pacienteData);
-    return this.http.put<Paciente>(`${this.apiUrl}/${id}`, pacienteData);
+    return this.http.put<Paciente>(`${this.apiUrl}/patients/${id}`, pacienteData);
     //ultimos comentarios de hoy, mandar solo datos json para actualisar ya que la imagen se enviara aparte y asi no modificamos el metodo update
     // en el back, no olvidar que marca error 404
     
   }
   
   updatePhotoPaciente(id: number, photo: FormData): Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/${id}/foto`, photo);
+    return this.http.post<any>(`${this.apiUrl}/patients/${id}/foto`, photo);
   }
 
 

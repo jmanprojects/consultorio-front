@@ -1,16 +1,16 @@
 <div class="menu-container">
-<ul>
-    <li routerLink="/user">
-        <span class="material-symbols-outlined"> account_circle</span>
+    <ul>
+      <li routerLink="/user">
+        <span class="material-symbols-outlined">account_circle</span>
         Mi cuenta
-    </li>
-    <li (click)="configuracion()">
-        <span class="material-symbols-outlined"> settings</span>
+      </li>
+      <li (click)="configuracion()">
+        <span class="material-symbols-outlined">settings</span>
         Configuración
-    </li>
-    <li class="logout">
-        <span class="material-symbols-outlined">logout</span> Cerrar sesión
-    </li>
-</ul>
-</div>
-  
+      </li>
+      <li class="logout" (click)="closeSesion()">
+        <span class="material-symbols-outlined">logout</span>
+        Cerrar sesión
+      </li>
+    </ul>
+  </div>

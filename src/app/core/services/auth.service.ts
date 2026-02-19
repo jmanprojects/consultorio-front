@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, } from '@angular/common/http';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 // import { Token } from '@angular/compiler';
-import { BehaviorSubject,tap } from 'rxjs';
+import { BehaviorSubject,Observable,tap } from 'rxjs';
+import { environment } from '../../../environmets/environment';
 import { User } from '../interfaces/user.interface';
 import { LoginResponse } from '../interfaces/loginResponse.interaface';
 
@@ -17,7 +18,8 @@ export class AuthService {
   private userSubject = new BehaviorSubject<User | null>(null);
   user$ = this.userSubject.asObservable();
   
-  private apiUrl: string = 'http://127.0.0.1:8000/api';
+  // private apiUrl: string = environment.apiUrl;
+  private apiUrl: string = environment.apiUrl;
   
   constructor(private http: HttpClient) { 
     if (typeof window !== 'undefined' && window.localStorage) {
@@ -80,36 +82,17 @@ export class AuthService {
     return this.userSubject.value;
   }
 
-  // register(name: string, email: string, password: string) {
-  //   return this.http.post(`${this.apiUrl}/register`, { name, email, password });
-  // }
 
-  // logout() {
-  //   return this.http.post(`${this.apiUrl}/logout`, {}).pipe(
-  //     tap(() => localStorage.removeItem('token'))
-  //   );
-  // }
-
-  // isLoggedIn(): boolean {
-  //     return !!localStorage.getItem('token');
-  // }
-
-  // loginFake(){
-  //   const token: string = 'token-falso-2';
-  //   localStorage.setItem('token','token');
-  // }
+  logout():Observable<any> {
+    return this.http.post(`${this.apiUrl}/logout`, {}).pipe (
+      tap(() => {
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user');
+        this._loggedIn$.next(false);
+        this.userSubject.next(null);
+      })
+    );
+  }
 
   
-
-  // loginFake() {
-  //   if (typeof window !== 'undefined' && window.localStorage) {
-  //     localStorage.setItem('token', 'mi-token-falso');
-  //   }
-  // }
-
-  // logout() {
-  //   if (typeof window !== 'undefined' && window.localStorage) {
-  //     localStorage.removeItem('token');
-  //   }
-  // }
 }

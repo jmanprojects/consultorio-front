@@ -1,6 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
-import { EventEmitter } from 'node:stream';
-
+import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
 @Component({
   selector: 'shared-user-menu',
   templateUrl: './user-menu.component.html',
@@ -8,7 +8,11 @@ import { EventEmitter } from 'node:stream';
 })
 export class UserMenuComponent {
 
-  @Input() usuario: any;
+  constructor( 
+    private authService:AuthService,
+    private router: Router
+   ){}
+  // @Input() usuario: any;
   // @Output() cerrarSesion = new EventEmitter();
 
   // miCuenta() {
@@ -17,6 +21,17 @@ export class UserMenuComponent {
 
   configuracion() {
     // futuro
+  }
+
+  closeSesion(){
+    this.authService.logout().subscribe({
+      next: () => this.router.navigate(['/auth/login']),
+      error: () => {
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user');
+        this.router.navigate(['/auth/login']);
+      }
+    })
   }
 
 }
